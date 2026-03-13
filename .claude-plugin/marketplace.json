@@ -7,7 +7,7 @@
 		{
 			"name": "luau-lsp",
 			"source": "./",
-			"description": "Luau LSP integration for Roblox development in Claude Code (.luau and .lua)",
+			"description": "Luau LSP integration for Claude Code (.luau and .lua)",
 			"version": "1.0.0"
 		}
 	]

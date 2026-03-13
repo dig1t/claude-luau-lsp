@@ -1,25 +1,19 @@
 {
-	"name": "luau-lsp",
-	"version": "1.0.0",
-	"description": "Luau LSP integration for Roblox development in Claude Code",
-	"author": {
-		"name": "dig1t",
-		"url": "https://github.com/dig1t"
-	},
-	"lspServers": {
-		"luau": {
-			"command": "luau-lsp",
-			"args": [
-				"lsp",
-				"--definitions=globalTypes.d.luau",
-				"--sourcemap=sourcemap.json",
-				"--no-strict-dm-types"
-			],
-			"extensionToLanguage": {
-				".luau": "luau",
-			".lua": "luau"
-			}
-		}
-	},
-	"hooks": "./hooks/hooks.json"
+  "name": "luau-lsp",
+  "version": "1.0.0",
+  "description": "Luau LSP integration for Claude Code (.luau and .lua)",
+  "author": {
+    "name": "dig1t",
+    "url": "https://github.com/dig1t"
+  },
+  "lspServers": {
+    "luau": {
+      "command": "luau-lsp",
+      "args": ["lsp"],
+      "extensionToLanguage": {
+        ".luau": "luau",
+        ".lua": "luau"
+      }
+    }
+  }
 }

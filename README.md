@@ -4,14 +4,12 @@ Luau LSP plugin for Claude Code. Provides type checking, go-to-definition, hover
 
 ## Prerequisites
 
-- [luau-lsp](https://github.com/JohnnyMorganz/luau-lsp) must be installed and in your `$PATH`
-- [Rojo](https://github.com/rojo-rbx/rojo) (optional, for sourcemap generation)
+[luau-lsp](https://github.com/JohnnyMorganz/luau-lsp) must be installed and in your `$PATH`.
 
-Both are typically installed via [Aftman](https://github.com/LPGhatguy/aftman) or [Foreman](https://github.com/Roblox/foreman):
+Typically installed via [Aftman](https://github.com/LPGhatguy/aftman) or [Foreman](https://github.com/Roblox/foreman):
 
 ```bash
 aftman add JohnnyMorganz/luau-lsp
-aftman add rojo-rbx/rojo
 ```
 
 ## Installation
@@ -23,6 +21,44 @@ claude plugin install luau-lsp@claude-luau-lsp
 
 ## What it does
 
-- Starts `luau-lsp` as a language server for `.luau` and `.lua` files
-- On session start, downloads Roblox global type definitions (`globalTypes.d.luau`) if missing or stale
-- On session start, generates a Rojo sourcemap (`sourcemap.json`) if Rojo is available
+Starts `luau-lsp` as a language server for `.luau` and `.lua` files, giving Claude Code access to type checking, go-to-definition, hover info, find references, and other LSP features.
+
+## Roblox projects
+
+For Roblox development, you'll want to pass additional args to luau-lsp. Create a project-level plugin by adding `.claude-plugin/plugin.json` to your project:
+
+```json
+{
+  "name": "my-project-lsp",
+  "version": "1.0.0",
+  "description": "Luau LSP with Roblox types",
+  "lspServers": {
+    "luau": {
+      "command": "luau-lsp",
+      "args": [
+        "lsp",
+        "--definitions=globalTypes.d.luau",
+        "--no-strict-dm-types"
+      ],
+      "extensionToLanguage": {
+        ".luau": "luau",
+        ".lua": "luau"
+      }
+    }
+  }
+}
+```
+
+Then download Roblox type definitions to your project root:
+
+```bash
+curl -sL "https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/main/scripts/globalTypes.d.luau" -o globalTypes.d.luau
+```
+
+For Rojo projects, luau-lsp auto-detects `sourcemap.json` in the workspace root. Generate one with:
+
+```bash
+rojo sourcemap --include-non-scripts --output sourcemap.json
+```
+
+You can automate both by adding a SessionStart hook to your project's `.claude/settings.json`.
