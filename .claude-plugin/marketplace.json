@@ -1,0 +1,14 @@
+{
+	"name": "claude-luau-lsp",
+	"owner": {
+		"name": "dig1t"
+	},
+	"plugins": [
+		{
+			"name": "luau-lsp",
+			"source": "./",
+			"description": "Luau LSP integration for Roblox development in Claude Code",
+			"version": "1.0.0"
+		}
+	]
+}
