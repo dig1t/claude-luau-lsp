@@ -1,6 +1,6 @@
 # claude-luau-lsp
 
-Luau LSP plugin for Claude Code. Provides type checking, go-to-definition, hover info, and other language intelligence for Roblox (`.luau`) files.
+Luau LSP plugin for Claude Code. Provides type checking, go-to-definition, hover info, and other language intelligence for `.luau` and `.lua` files.
 
 ## Prerequisites
 
@@ -23,6 +23,6 @@ claude plugin install luau-lsp@claude-luau-lsp
 
 ## What it does
 
-- Starts `luau-lsp` as a language server for `.luau` files
+- Starts `luau-lsp` as a language server for `.luau` and `.lua` files
 - On session start, downloads Roblox global type definitions (`globalTypes.d.luau`) if missing or stale
 - On session start, generates a Rojo sourcemap (`sourcemap.json`) if Rojo is available

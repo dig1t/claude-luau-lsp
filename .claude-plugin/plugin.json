@@ -16,7 +16,8 @@
 				"--no-strict-dm-types"
 			],
 			"extensionToLanguage": {
-				".luau": "luau"
+				".luau": "luau",
+			".lua": "luau"
 			}
 		}
 	},
