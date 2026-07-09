@@ -7,8 +7,8 @@
 		{
 			"name": "luau-lsp",
 			"source": "./",
-			"description": "Luau LSP integration for Claude Code (.luau and .lua)",
-			"version": "1.0.0"
+			"description": "Luau LSP for Claude Code with Roblox auto-detection (.luau and .lua)",
+			"version": "2.0.0"
 		}
 	]
 }
